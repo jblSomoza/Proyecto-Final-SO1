@@ -38,6 +38,7 @@ services:
     restart: unless-stopped
 
   consumidor1:
+    image: proyecto-so1-consumidor:local
     build: ./consumidor
     environment: &consumidor_env
       MYSQL_HOST: mysql
@@ -56,6 +57,7 @@ services:
     restart: unless-stopped
 
   consumidor2:
+    image: proyecto-so1-consumidor:local
     build: ./consumidor
     environment:
       <<: *consumidor_env
