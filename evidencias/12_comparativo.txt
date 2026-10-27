@@ -1,0 +1,13 @@
+Comparación de corridas reales independientes
+
+Métrica                         Con semáforo   Sin semáforo
+Transacciones creadas           26             29
+Transacciones procesadas        26             29
+Pendientes al terminar          0              0
+Intentos duplicados             0              26
+
+La tabla intentos_procesamiento registra cada intento. En el modo sin semáforo,
+26 transacciones recibieron un segundo intento de procesamiento.
+
+Fuentes: trazas/escenario_con_semaforo_sql.txt y trazas/escenario_sin_semaforo_sql.txt.
+

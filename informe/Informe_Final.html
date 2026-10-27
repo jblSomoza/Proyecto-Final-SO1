@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Informe final — Productor y consumidores</title>
+<style>
+  @page { size: A4; margin: 17mm 18mm; }
+  body { font-family: Arial, sans-serif; color: #17243a; font-size: 10.5pt; line-height: 1.36; }
+  h1 { font-size: 19pt; color: #123b69; margin: 0 0 4mm; }
+  h2 { font-size: 12pt; color: #123b69; margin: 5mm 0 2mm; }
+  p { margin: 0 0 3mm; }
+  table { width: 100%; border-collapse: collapse; margin: 3mm 0 4mm; font-size: 9.5pt; }
+  th, td { border: 1px solid #b8c8d9; padding: 2mm; text-align: left; }
+  th { background: #eaf1f8; }
+  .meta { color: #50627a; margin-bottom: 6mm; }
+  .nota { border-left: 3px solid #2c70ad; padding-left: 3mm; }
+</style>
+</head>
+<body>
+<h1>Informe final: productor y consumidores con semáforo</h1>
+<p class="meta">Proyecto final de Sistemas Operativos 1 · Redis, MySQL, Python y Docker Compose</p>
+
+<h2>Objetivo y arquitectura</h2>
+<p>El sistema simula transacciones bancarias mediante cinco contenedores. Un productor inserta filas con estado <strong>PENDIENTE</strong> en MySQL. Dos consumidores buscan la fila pendiente más antigua, esperan entre uno y tres segundos y la cambian a <strong>PROCESADO</strong>. Redis guarda un semáforo distribuido para coordinar a los consumidores. MySQL también conserva cada intento en <code>intentos_procesamiento</code>, lo que permite observar escrituras repetidas.</p>
+
+<h2>Problema y sección crítica</h2>
+<p>La sección crítica abarca la búsqueda de una transacción pendiente, la simulación de su procesamiento y la actualización de su estado y metadatos. Si ambos consumidores leen la misma fila antes de que alguno la actualice, ambos pueden trabajar sobre ella. La fila final solo muestra un consumidor, de modo que el resultado visible puede ocultar el trabajo duplicado y la sobrescritura de <code>procesado_por</code>.</p>
+
+<h2>Semáforo distribuido en Redis</h2>
+<p>Cada consumidor intenta <code>SET semaforo:transacciones &lt;token&gt; NX EX 10</code>. <code>NX</code> hace que solo el primero cree la clave; el token combina el nombre del consumidor con un identificador único; <code>EX 10</code> evita que un fallo deje el recurso bloqueado indefinidamente. Mientras procesa, el consumidor renueva el vencimiento si todavía es dueño. Para liberar, un script Lua compara el token y elimina la clave en una sola operación atómica. Así, un consumidor no elimina el bloqueo que otro adquirió después de una expiración.</p>
+
+<h2>Prueba y resultados observados</h2>
+<p>Se ejecutaron dos corridas independientes con un volumen MySQL limpio en cada una. El productor se detuvo después de crear más de 20 transacciones; los consumidores continuaron hasta dejar cero pendientes. Los resultados se sustentan en los archivos de <code>trazas/</code>.</p>
+<table>
+  <tr><th>Medida</th><th>Con semáforo</th><th>Sin semáforo</th></tr>
+  <tr><td>Transacciones creadas</td><td>26</td><td>29</td></tr>
+  <tr><td>Transacciones procesadas</td><td>26</td><td>29</td></tr>
+  <tr><td>Pendientes al cierre</td><td>0</td><td>0</td></tr>
+  <tr><td>Intentos duplicados registrados</td><td>0</td><td>26</td></tr>
+</table>
+<p>Con semáforo, los logs muestran adquisición, procesamiento y liberación alternados entre consumidores; cada transacción tuvo un solo intento. Sin semáforo, ambos consumidores llegaron a seleccionar el mismo ID antes de actualizarlo. La tabla de intentos registró 26 segundas escrituras sobre transacciones que ya estaban procesadas.</p>
+
+<h2>Condición de carrera y alcance</h2>
+<p>La carrera es de tipo lectura, espera y escritura: el resultado depende del orden temporal de dos consumidores. En el modo de demostración sin semáforo, la actualización deliberadamente no exige que la fila continúe <code>PENDIENTE</code>; esto hace visible la sobrescritura y registra el segundo intento como <code>DUPLICADO</code>. En el modo normal, además del semáforo, la sentencia <code>UPDATE</code> exige <code>estado='PENDIENTE'</code> como protección adicional. El registro de intentos permite distinguir entre transacciones únicas y operaciones repetidas.</p>
+
+<h2>Conclusiones</h2>
+<p>La coordinación en Redis evitó que los dos consumidores ejecutaran simultáneamente la sección crítica durante la prueba. La liberación condicionada al token evita borrar la concesión de otro consumidor. La comparación real mostró cero duplicados con sincronización y 26 intentos duplicados sin ella. El TTL y su renovación ayudan ante fallos o pausas, aunque una instalación bancaria real requeriría garantías adicionales de consistencia y recuperación que exceden esta simulación académica.</p>
+
+<p class="nota"><strong>Nota sobre el enunciado:</strong> el documento recibido menciona preguntas de una sección 9 que no fue proporcionada. Este informe responde solo a los requisitos disponibles; no atribuye preguntas inexistentes al documento original.</p>
+</body>
+</html>

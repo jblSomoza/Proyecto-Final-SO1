@@ -1,0 +1,15 @@
+﻿consumidor2-1  | [2026-10-27 21:22:42.189008] consumidor2 -> ESPERANDO SEMAFORO | recurso ocupado
+consumidor2-1  | [2026-10-27 21:22:42.690230] consumidor2 -> ESPERANDO SEMAFORO | recurso ocupado
+consumidor2-1  | [2026-10-27 21:22:43.190824] consumidor2 -> ESPERANDO SEMAFORO | recurso ocupado
+consumidor2-1  | [2026-10-27 21:22:43.691638] consumidor2 -> SEMAFORO ADQUIRIDO | dueño=consumidor2:6bb0aa9515f34af585c3dd0342dc32ea | TTL=10s
+consumidor2-1  | [2026-10-27 21:22:43.701811] consumidor2 -> PROCESANDO TRANSACCION #3 | demora=2.01s
+consumidor2-1  | [2026-10-27 21:22:45.714056] consumidor2 -> TRANSACCION #3 PROCESADA
+consumidor2-1  | [2026-10-27 21:22:45.715614] consumidor2 -> SEMAFORO LIBERADO
+consumidor2-1  | [2026-10-27 21:22:46.216203] consumidor2 -> ESPERANDO SEMAFORO | recurso ocupado
+consumidor2-1  | [2026-10-27 21:22:46.717282] consumidor2 -> ESPERANDO SEMAFORO | recurso ocupado
+consumidor2-1  | [2026-10-27 21:22:47.218525] consumidor2 -> ESPERANDO SEMAFORO | recurso ocupado
+consumidor2-1  | [2026-10-27 21:22:47.719166] consumidor2 -> ESPERANDO SEMAFORO | recurso ocupado
+consumidor2-1  | [2026-10-27 21:22:48.219828] consumidor2 -> SEMAFORO ADQUIRIDO | dueño=consumidor2:43dc5ad556f44dc08e69c376c019bb8c | TTL=10s
+consumidor2-1  | [2026-10-27 21:22:48.229497] consumidor2 -> PROCESANDO TRANSACCION #5 | demora=2.64s
+consumidor2-1  | [2026-10-27 21:22:50.879164] consumidor2 -> TRANSACCION #5 PROCESADA
+consumidor2-1  | [2026-10-27 21:22:50.880270] consumidor2 -> SEMAFORO LIBERADO

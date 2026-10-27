@@ -1,0 +1,23 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><style>
+body{margin:0;background:#101010;color:#e6e6e6;font:16px/1.45 Consolas,monospace}
+.titulo{background:#252525;color:#eeeeee;border-bottom:1px solid #404040;padding:8px 16px;font-size:15px}
+.terminal{padding:18px 22px}
+.comando{color:#eeeeee;margin-bottom:14px}
+pre{font:16px/1.45 Consolas,monospace;white-space:pre-wrap;overflow-wrap:anywhere;margin:0}
+.fuente{color:#989898;margin-top:22px;font-size:13px}
+</style></head><body><div class="titulo">Comparacion de escenarios</div>
+<div class="terminal"><div class="comando">PS&gt; Resumen de ambas consultas SQL</div><pre>Comparaci&#243;n de corridas reales independientes
+
+M&#233;trica                         Con sem&#225;foro   Sin sem&#225;foro
+Transacciones creadas           26             29
+Transacciones procesadas        26             29
+Pendientes al terminar          0              0
+Intentos duplicados             0              26
+
+La tabla intentos_procesamiento registra cada intento. En el modo sin sem&#225;foro,
+26 transacciones recibieron un segundo intento de procesamiento.
+
+Fuentes: trazas/escenario_con_semaforo_sql.txt y trazas/escenario_sin_semaforo_sql.txt.
+
+</pre>
+<div class="fuente">Salida guardada en evidencias/12_comparativo.txt</div></div></body></html>

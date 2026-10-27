@@ -1,0 +1,22 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><style>
+body{margin:0;background:#101010;color:#e6e6e6;font:16px/1.45 Consolas,monospace}
+.titulo{background:#252525;color:#eeeeee;border-bottom:1px solid #404040;padding:8px 16px;font-size:15px}
+.terminal{padding:18px 22px}
+.comando{color:#eeeeee;margin-bottom:14px}
+pre{font:16px/1.45 Consolas,monospace;white-space:pre-wrap;overflow-wrap:anywhere;margin:0}
+.fuente{color:#989898;margin-top:22px;font-size:13px}
+</style></head><body><div class="titulo">Consulta de pendientes</div>
+<div class="terminal"><div class="comando">PS&gt; SELECT * FROM transacciones WHERE estado=&#39;PENDIENTE&#39;;</div><pre>id	cuenta	tipo	monto	estado	creado_en
+1	10043	RETIRO	91.65	PENDIENTE	2026-10-27 21:22:13.652420
+2	10091	RETIRO	171.87	PENDIENTE	2026-10-27 21:22:15.339967
+3	10007	DEPOSITO	341.77	PENDIENTE	2026-10-27 21:22:16.416421
+4	10015	RETIRO	375.53	PENDIENTE	2026-10-27 21:22:18.295822
+5	10058	DEPOSITO	389.94	PENDIENTE	2026-10-27 21:22:19.921518
+6	10049	DEPOSITO	182.87	PENDIENTE	2026-10-27 21:22:21.374565
+7	10074	RETIRO	250.13	PENDIENTE	2026-10-27 21:22:22.889455
+8	10091	DEPOSITO	390.33	PENDIENTE	2026-10-27 21:22:24.580828
+9	10071	DEPOSITO	466.43	PENDIENTE	2026-10-27 21:22:25.873119
+10	10016	DEPOSITO	256.92	PENDIENTE	2026-10-27 21:22:27.134428
+11	10091	DEPOSITO	376.70	PENDIENTE	2026-10-27 21:22:29.047457
+</pre>
+<div class="fuente">Salida guardada en evidencias/07_pendientes.txt</div></div></body></html>

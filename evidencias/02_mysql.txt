@@ -1,0 +1,7 @@
+﻿version_mysql
+8.4.13
+Tables_in_banco_so1
+intentos_procesamiento
+transacciones
+total
+26

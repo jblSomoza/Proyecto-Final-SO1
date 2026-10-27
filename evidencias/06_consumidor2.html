@@ -1,0 +1,25 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><style>
+body{margin:0;background:#101010;color:#e6e6e6;font:16px/1.45 Consolas,monospace}
+.titulo{background:#252525;color:#eeeeee;border-bottom:1px solid #404040;padding:8px 16px;font-size:15px}
+.terminal{padding:18px 22px}
+.comando{color:#eeeeee;margin-bottom:14px}
+pre{font:16px/1.45 Consolas,monospace;white-space:pre-wrap;overflow-wrap:anywhere;margin:0}
+.fuente{color:#989898;margin-top:22px;font-size:13px}
+</style></head><body><div class="titulo">Logs del consumidor 2</div>
+<div class="terminal"><div class="comando">PS&gt; docker compose logs --tail 15 consumidor2</div><pre>consumidor2-1  | [2026-10-27 21:22:42.189008] consumidor2 -&gt; ESPERANDO SEMAFORO | recurso ocupado
+consumidor2-1  | [2026-10-27 21:22:42.690230] consumidor2 -&gt; ESPERANDO SEMAFORO | recurso ocupado
+consumidor2-1  | [2026-10-27 21:22:43.190824] consumidor2 -&gt; ESPERANDO SEMAFORO | recurso ocupado
+consumidor2-1  | [2026-10-27 21:22:43.691638] consumidor2 -&gt; SEMAFORO ADQUIRIDO | due&#241;o=consumidor2:6bb0aa9515f34af585c3dd0342dc32ea | TTL=10s
+consumidor2-1  | [2026-10-27 21:22:43.701811] consumidor2 -&gt; PROCESANDO TRANSACCION #3 | demora=2.01s
+consumidor2-1  | [2026-10-27 21:22:45.714056] consumidor2 -&gt; TRANSACCION #3 PROCESADA
+consumidor2-1  | [2026-10-27 21:22:45.715614] consumidor2 -&gt; SEMAFORO LIBERADO
+consumidor2-1  | [2026-10-27 21:22:46.216203] consumidor2 -&gt; ESPERANDO SEMAFORO | recurso ocupado
+consumidor2-1  | [2026-10-27 21:22:46.717282] consumidor2 -&gt; ESPERANDO SEMAFORO | recurso ocupado
+consumidor2-1  | [2026-10-27 21:22:47.218525] consumidor2 -&gt; ESPERANDO SEMAFORO | recurso ocupado
+consumidor2-1  | [2026-10-27 21:22:47.719166] consumidor2 -&gt; ESPERANDO SEMAFORO | recurso ocupado
+consumidor2-1  | [2026-10-27 21:22:48.219828] consumidor2 -&gt; SEMAFORO ADQUIRIDO | due&#241;o=consumidor2:43dc5ad556f44dc08e69c376c019bb8c | TTL=10s
+consumidor2-1  | [2026-10-27 21:22:48.229497] consumidor2 -&gt; PROCESANDO TRANSACCION #5 | demora=2.64s
+consumidor2-1  | [2026-10-27 21:22:50.879164] consumidor2 -&gt; TRANSACCION #5 PROCESADA
+consumidor2-1  | [2026-10-27 21:22:50.880270] consumidor2 -&gt; SEMAFORO LIBERADO
+</pre>
+<div class="fuente">Salida guardada en evidencias/06_consumidor2.txt</div></div></body></html>

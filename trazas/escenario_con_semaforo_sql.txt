@@ -1,0 +1,5 @@
+﻿estado	cantidad
+PROCESADO	26
+consumidor	resultado	cantidad
+consumidor1	PROCESADO	13
+consumidor2	PROCESADO	13

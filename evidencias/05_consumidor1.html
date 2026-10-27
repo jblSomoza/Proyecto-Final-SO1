@@ -1,0 +1,25 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><style>
+body{margin:0;background:#101010;color:#e6e6e6;font:16px/1.45 Consolas,monospace}
+.titulo{background:#252525;color:#eeeeee;border-bottom:1px solid #404040;padding:8px 16px;font-size:15px}
+.terminal{padding:18px 22px}
+.comando{color:#eeeeee;margin-bottom:14px}
+pre{font:16px/1.45 Consolas,monospace;white-space:pre-wrap;overflow-wrap:anywhere;margin:0}
+.fuente{color:#989898;margin-top:22px;font-size:13px}
+</style></head><body><div class="titulo">Logs del consumidor 1</div>
+<div class="terminal"><div class="comando">PS&gt; docker compose logs --tail 15 consumidor1</div><pre>consumidor1-1  | [2026-10-27 21:22:43.848877] consumidor1 -&gt; ESPERANDO SEMAFORO | recurso ocupado
+consumidor1-1  | [2026-10-27 21:22:44.349976] consumidor1 -&gt; ESPERANDO SEMAFORO | recurso ocupado
+consumidor1-1  | [2026-10-27 21:22:44.851033] consumidor1 -&gt; ESPERANDO SEMAFORO | recurso ocupado
+consumidor1-1  | [2026-10-27 21:22:45.352199] consumidor1 -&gt; ESPERANDO SEMAFORO | recurso ocupado
+consumidor1-1  | [2026-10-27 21:22:45.853316] consumidor1 -&gt; SEMAFORO ADQUIRIDO | due&#241;o=consumidor1:966c800017bf44439decc497f3e07c42 | TTL=10s
+consumidor1-1  | [2026-10-27 21:22:45.871596] consumidor1 -&gt; PROCESANDO TRANSACCION #4 | demora=2.32s
+consumidor1-1  | [2026-10-27 21:22:48.197673] consumidor1 -&gt; TRANSACCION #4 PROCESADA
+consumidor1-1  | [2026-10-27 21:22:48.199287] consumidor1 -&gt; SEMAFORO LIBERADO
+consumidor1-1  | [2026-10-27 21:22:48.700011] consumidor1 -&gt; ESPERANDO SEMAFORO | recurso ocupado
+consumidor1-1  | [2026-10-27 21:22:49.200967] consumidor1 -&gt; ESPERANDO SEMAFORO | recurso ocupado
+consumidor1-1  | [2026-10-27 21:22:49.702016] consumidor1 -&gt; ESPERANDO SEMAFORO | recurso ocupado
+consumidor1-1  | [2026-10-27 21:22:50.202980] consumidor1 -&gt; ESPERANDO SEMAFORO | recurso ocupado
+consumidor1-1  | [2026-10-27 21:22:50.703874] consumidor1 -&gt; ESPERANDO SEMAFORO | recurso ocupado
+consumidor1-1  | [2026-10-27 21:22:51.204529] consumidor1 -&gt; SEMAFORO ADQUIRIDO | due&#241;o=consumidor1:03fda38355a44fb1b7c5d728739aeb55 | TTL=10s
+consumidor1-1  | [2026-10-27 21:22:51.213042] consumidor1 -&gt; PROCESANDO TRANSACCION #6 | demora=1.10s
+</pre>
+<div class="fuente">Salida guardada en evidencias/05_consumidor1.txt</div></div></body></html>

@@ -1,0 +1,23 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><style>
+body{margin:0;background:#101010;color:#e6e6e6;font:16px/1.45 Consolas,monospace}
+.titulo{background:#252525;color:#eeeeee;border-bottom:1px solid #404040;padding:8px 16px;font-size:15px}
+.terminal{padding:18px 22px}
+.comando{color:#eeeeee;margin-bottom:14px}
+pre{font:16px/1.45 Consolas,monospace;white-space:pre-wrap;overflow-wrap:anywhere;margin:0}
+.fuente{color:#989898;margin-top:22px;font-size:13px}
+</style></head><body><div class="titulo">Consulta de procesadas</div>
+<div class="terminal"><div class="comando">PS&gt; SELECT * FROM transacciones WHERE estado=&#39;PROCESADO&#39;;</div><pre>id	cuenta	tipo	monto	estado	procesado_en	procesado_por
+1	10043	RETIRO	91.65	PROCESADO	2026-10-27 21:22:41.177253	consumidor2
+2	10091	RETIRO	171.87	PROCESADO	2026-10-27 21:22:43.334875	consumidor1
+3	10007	DEPOSITO	341.77	PROCESADO	2026-10-27 21:22:45.710159	consumidor2
+4	10015	RETIRO	375.53	PROCESADO	2026-10-27 21:22:48.189351	consumidor1
+5	10058	DEPOSITO	389.94	PROCESADO	2026-10-27 21:22:50.874268	consumidor2
+6	10049	DEPOSITO	182.87	PROCESADO	2026-10-27 21:22:52.318612	consumidor1
+7	10074	RETIRO	250.13	PROCESADO	2026-10-27 21:22:54.411759	consumidor2
+8	10091	DEPOSITO	390.33	PROCESADO	2026-10-27 21:22:56.057699	consumidor1
+9	10071	DEPOSITO	466.43	PROCESADO	2026-10-27 21:22:59.346297	consumidor2
+10	10016	DEPOSITO	256.92	PROCESADO	2026-10-27 21:23:01.552421	consumidor1
+11	10091	DEPOSITO	376.70	PROCESADO	2026-10-27 21:23:04.772918	consumidor2
+12	10001	RETIRO	357.56	PROCESADO	2026-10-27 21:23:07.109379	consumidor1
+</pre>
+<div class="fuente">Salida guardada en evidencias/08_procesadas.txt</div></div></body></html>

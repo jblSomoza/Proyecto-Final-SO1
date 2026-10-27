@@ -1,0 +1,16 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><style>
+body{margin:0;background:#101010;color:#e6e6e6;font:16px/1.45 Consolas,monospace}
+.titulo{background:#252525;color:#eeeeee;border-bottom:1px solid #404040;padding:8px 16px;font-size:15px}
+.terminal{padding:18px 22px}
+.comando{color:#eeeeee;margin-bottom:14px}
+pre{font:16px/1.45 Consolas,monospace;white-space:pre-wrap;overflow-wrap:anywhere;margin:0}
+.fuente{color:#989898;margin-top:22px;font-size:13px}
+</style></head><body><div class="titulo">Cinco contenedores</div>
+<div class="terminal"><div class="comando">PS&gt; docker compose ps</div><pre>NAME                               IMAGE                           COMMAND                  SERVICE       CREATED          STATUS                    PORTS
+proyecto-final-so1-consumidor1-1   proyecto-so1-consumidor:local   &quot;python consumidor.py&quot;   consumidor1   8 seconds ago    Up 7 seconds              
+proyecto-final-so1-consumidor2-1   proyecto-so1-consumidor:local   &quot;python consumidor.py&quot;   consumidor2   8 seconds ago    Up 8 seconds              
+proyecto-final-so1-mysql-1         mysql:8                         &quot;docker-entrypoint.s…&quot;   mysql         45 seconds ago   Up 45 seconds (healthy)   3306/tcp, 33060/tcp
+proyecto-final-so1-productor-1     proyecto-final-so1-productor    &quot;python productor.py&quot;    productor     45 seconds ago   Up 34 seconds             
+proyecto-final-so1-redis-1         redis:7                         &quot;docker-entrypoint.s…&quot;   redis         45 seconds ago   Up 44 seconds (healthy)   6379/tcp
+</pre>
+<div class="fuente">Salida guardada en evidencias/01_contenedores.txt</div></div></body></html>
